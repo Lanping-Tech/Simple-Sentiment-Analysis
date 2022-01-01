@@ -14,8 +14,8 @@ def parse_arguments():
     
     parser.add_argument('--n_classes', default=2, type=int, help='number of classes')
 
-    parser.add_argument('--data_path', type=str, default='test_data.txt', help='the path of dataset')
-    parser.add_argument('--batch_size', default=2, type=int, help='batch size')
+    parser.add_argument('--data_path', type=str, default='data/data.txt', help='the path of dataset')
+    parser.add_argument('--batch_size', default=20, type=int, help='batch size')
 
     parser.add_argument('--epochs', default=50, type=int, help='number of epochs tp train for')
     parser.add_argument('--lr', default=1e-3, type=float, help='learning rate')
@@ -39,6 +39,9 @@ def train(model, dataset, optimizer, device, batch_size, epochs):
             loss.backward()
             optimizer.step()
             pbar.set_postfix(loss=loss.item())
+        
+        if epoch % 10 == 0:
+            model.save('model_{}.pth'.format(epoch))
 
     return model
     

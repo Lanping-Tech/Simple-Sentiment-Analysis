@@ -63,7 +63,7 @@ def load_data(file_path):
     targets = []
     with open(file_path, 'r', encoding='utf-8') as f:
         for line in f:
-            review, target = line.strip().split(',')
+            review, target = line.strip().split('\t')
             reviews.append(review)
             targets.append(int(target))
     return reviews, targets
