@@ -17,8 +17,12 @@ class ReviewsDataset(Dataset):
 
         encoding = self.tokenizer.encode_plus(
             review,
+            add_special_tokens=True,
             max_length=self.max_len,
+            return_token_type_ids=True,
             padding='max_length',
+            truncation=True,
+            return_attention_mask=True,
             return_tensors='pt')
 
         return {

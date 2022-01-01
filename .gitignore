@@ -129,3 +129,5 @@ dmypy.json
 .pyre/
 
 chinese-roberta-wwm-ext/
+
+output/*.pth
