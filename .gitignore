@@ -131,3 +131,4 @@ dmypy.json
 chinese-roberta-wwm-ext/
 
 output/*.pth
+output/comments.csv
